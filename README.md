@@ -47,7 +47,7 @@ Upon launching the stack the following resources will be created:
 To import the module add the following to the environment TF file:
 ```
 module "vpc" {
-  source = "git::https://github.com/Cloud-42/terraform-aws-vpc.git
+  source = "git::https://github.com/Cloud-42/terraform-aws-vpc.git"
   
   availability_zones        = "${var.availability_zones}"
   environment               = "${var.environment}"
