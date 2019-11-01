@@ -10,7 +10,7 @@ resource "aws_subnet" "public_subnets" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name          = var.environment.sn.public.element(split(",", var.availability_zones), count.index)
+    Name          = "${var.environment}.sn.public.${element(split(",", var.availability_zones), count.index)}"
     Environment   = var.environment
     Description   = "public.${element(split(",", var.availability_zones), count.index)}"
     Contact       = var.vpc_contact
@@ -31,7 +31,7 @@ resource "aws_subnet" "private_subnets" {
   map_public_ip_on_launch = false
 
   tags = {
-    Name          = var.environment.sn.private.element(split(",", var.availability_zones), count.index)
+    Name          = "${var.environment}.sn.private.${element(split(",", var.availability_zones), count.index)}"
     Environment   = var.environment
     Description   = "private.${element(split(",", var.availability_zones), count.index)}"
     Contact       = var.vpc_contact

@@ -12,7 +12,7 @@ resource "aws_route_table" "private_route_table" {
   )
 
   tags = {
-    Name          = var.environment.rt.private.element(split(",", var.availability_zones), count.index)
+    Name          = "${var.environment}.rt.private.${element(split(",", var.availability_zones), count.index)}"
     Environment   = var.environment
     Description   = "private.${element(split(",", var.availability_zones), count.index)}"
     Contact       = var.vpc_contact
@@ -51,7 +51,7 @@ resource "aws_route_table" "public_route_table" {
   vpc_id = aws_vpc.main.id
 
   tags = {
-    Name          = var.environment.rt.public.$element(split(",", var.availability_zones), count.index)
+    Name          = "${var.environment}.rt.public.${element(split(",", var.availability_zones), count.index)}"
     Environment   = var.environment
     Description   = "public.${element(split(",", var.availability_zones), count.index)}"
     Contact       = var.vpc_contact
