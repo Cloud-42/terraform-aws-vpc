@@ -25,7 +25,6 @@ Upon launching the stack the following resources will be created:
 | `availability_zones` | Availability Zones to use |
 | `public_subnets` | CIDR blocks for the public subnets |
 | `private_subnets` | CIDR blocks for the private subnets |
-| `data_subnets` | CIDR blocks for the data subnets |
 | `environment` |Environment to deploy for|
 | `vpc_propagating_vgws` |Comma separated list of Virtual Gateways that propagate routes to the private routing tables in addition to the one created. Optional. |
 | `vpc_enable_flow_logs` |Set to "1" to enable flow logs for the VPC, logging to s3. Defaults to "1"|
@@ -53,7 +52,6 @@ module "vpc" {
   environment               = "${var.environment}"
   dns_domain                = "${var.dns_domain}"
   private_subnets           = "${var.private_subnets}"
-  data_subnets              = "${var.data_subnets}"
   public_subnets            = "${var.public_subnets}"
   vpc_subnet                = "${var.vpc_subnet_cidr}"
   vpc_contact               = "${var.contact}"

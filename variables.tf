@@ -20,9 +20,6 @@ variable "public_subnets" {
 variable "private_subnets" {
 }
 
-variable "data_subnets" {
-}
-
 variable "environment" {
 }
 
