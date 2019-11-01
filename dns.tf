@@ -15,7 +15,7 @@ resource "aws_vpc_dhcp_options" "options" {
   domain_name_servers = split(",", var.domain_name_servers)
 
   tags = {
-    Name          = var.environment.dhcp_options
+    Name          = "${var.environment}.dhcp_options"
     Environment   = var.environment
     Description   = "dhcp_options"
     Contact       = var.vpc_contact
