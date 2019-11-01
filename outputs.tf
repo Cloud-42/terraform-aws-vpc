@@ -45,5 +45,5 @@ output "zone_id" {
 #
 
 output "vpc" {
-  value = aws_vpc.example
+  value = aws_vpc.main
 }

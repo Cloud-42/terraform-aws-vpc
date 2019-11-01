@@ -19,6 +19,7 @@ variable "public_subnets" {
 
 variable "private_subnets" {
 }
+vpc_subnet_cidr
 
 variable "environment" {
 }
