@@ -18,7 +18,7 @@ resource "aws_security_group" "core_ssh" {
   }
 
   tags = {
-    Name          = var.environment.sg.core_ssh
+    Name          = "${var.environment}.sg.core_ssh"
     Environment   = var.environment
     Description   = "Default VPC SG allowing SSH access"
     Contact       = var.vpc_contact
