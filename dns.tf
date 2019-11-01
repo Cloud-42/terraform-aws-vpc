@@ -2,7 +2,7 @@ resource "aws_route53_zone" "vpc_public_zone" {
   name = var.dns_domain
 
   tags = {
-    Name          = var.environment.PublicZone
+    Name          = "${var.environment}.PublicZone"
     Environment   = var.environment
     Description   = "PublicZone"
     Contact       = var.vpc_contact
