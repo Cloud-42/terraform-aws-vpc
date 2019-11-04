@@ -12,4 +12,15 @@ resource "aws_flow_log" "vpc" {
 resource "aws_s3_bucket" "flow_logs" {
   count  = var.vpc_enable_flow_logs
   bucket = "${var.environment}-${var.vpc_flow_logs_s3_name}"
+
+  versioning {
+    enabled = true
+  }
+}
+
+resource "aws_s3_bucket_public_access_block" "s3publicAccessBlock" {
+  bucket = "${aws_s3_bucket.flow_logs.id}"
+
+  block_public_acls   = true
+  block_public_policy = true
 }
