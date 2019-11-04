@@ -22,6 +22,8 @@ resource "aws_s3_bucket_public_access_block" "s3publicAccessBlock" {
   count  = var.vpc_enable_flow_logs
   bucket = aws_s3_bucket.flow_logs[0].id
 
-  block_public_acls   = true
-  block_public_policy = true
+  block_public_acls       = true
+  block_public_policy     = true
+  restrict_public_buckets = true
+  ignore_public_acls      = true
 }
