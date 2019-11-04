@@ -48,15 +48,16 @@ To import the module add the following to the environment TF file:
 module "vpc" {
   source = "git::https://github.com/Cloud-42/terraform-aws-vpc.git"
   
-  availability_zones        = "${var.availability_zones}"
-  environment               = "${var.environment}"
-  dns_domain                = "${var.dns_domain}"
-  private_subnets           = "${var.private_subnets}"
-  public_subnets            = "${var.public_subnets}"
-  vpc_subnet                = "${var.vpc_subnet_cidr}"
-  vpc_contact               = "${var.contact}"
-  core_ssh_cidr_blocks      = "${var.core_ssh_cidr_blocks}"
-  global_orchestration      = "${var.orchestration}"
+  availability_zones        = var.availability_zones
+  environment               = var.environment
+  dns_domain                = var.dns_domain
+  private_subnets           = var.private_subnets
+  public_subnets            = var.public_subnets
+  vpc_subnet                = var.vpc_subnet_cidr
+  vpc_contact               = var.contact
+  core_ssh_cidr_blocks      = var.core_ssh_cidr_blocks
+  global_orchestration      = var.orchestration
+  flow_logs_s3_name         = var.vpc_flow_logs_s3_name
 }
 ```
 * To initialise the module run: terraform init

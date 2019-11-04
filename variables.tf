@@ -51,6 +51,5 @@ variable "vpcflowlogs_traffic_type" {
 
 variable "vpc_flow_logs_s3_name" {
   description = "Name for the s3 bucket that holds the VPC flow logs"
-  default     = ""
 }
 
