@@ -13,5 +13,10 @@ resource "aws_vpc" "main" {
     Contact       = var.vpc_contact
     Orchestration = var.global_orchestration
   }
+
+  lifecycle {
+    ignore_changes = [tags]
+  }
+
 }
 
