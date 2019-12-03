@@ -17,6 +17,10 @@ resource "aws_subnet" "public_subnets" {
     Orchestration = var.global_orchestration
     Visibility    = "public"
   }
+
+  lifecycle {
+    ignore_changes = [tags]
+  }
 }
 
 #--------------------------------------------------------------
@@ -38,5 +42,8 @@ resource "aws_subnet" "private_subnets" {
     Orchestration = var.global_orchestration
     Visibility    = "private"
   }
-}
 
+  lifecycle {
+    ignore_changes = [tags]
+  }
+}
