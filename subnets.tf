@@ -19,9 +19,9 @@ resource "aws_subnet" "public_subnets" {
     "kubernetes.io/role/elb" = var.k8s_public_elb_role
   }
 
-  #lifecycle {
-  #  ignore_changes = [tags]
-  #}
+  lifecycle {
+    ignore_changes = [tags]
+  }
 }
 
 #--------------------------------------------------------------
@@ -45,7 +45,7 @@ resource "aws_subnet" "private_subnets" {
     "kubernetes.io/role/internal-elb" = var.k8s_private_elb_role
   }
 
-  #lifecycle {
-  #  ignore_changes = [tags]
-  #}
+  lifecycle {
+    ignore_changes = [tags]
+  }
 }
