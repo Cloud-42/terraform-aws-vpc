@@ -53,3 +53,13 @@ variable "vpc_flow_logs_s3_name" {
   description = "Name for the s3 bucket that holds the VPC flow logs"
 }
 
+variable "k8s_public_elb_role" {
+  description = "Provides the ability to tag subnets for EKS ALB Public use"
+  default     = "1"
+}
+
+variable "k8s_private_elb_role" {
+  description = "Provides the ability to tag subnets for EKS ALB Private use"
+  default     = "1"
+}
+

@@ -10,12 +10,13 @@ resource "aws_subnet" "public_subnets" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name          = "${var.environment}.sn.public.${element(split(",", var.availability_zones), count.index)}"
-    Environment   = var.environment
-    Description   = "public.${element(split(",", var.availability_zones), count.index)}"
-    Contact       = var.vpc_contact
-    Orchestration = var.global_orchestration
-    Visibility    = "public"
+    Name                     = "${var.environment}.sn.public.${element(split(",", var.availability_zones), count.index)}"
+    Environment              = var.environment
+    Description              = "public.${element(split(",", var.availability_zones), count.index)}"
+    Contact                  = var.vpc_contact
+    Orchestration            = var.global_orchestration
+    Visibility               = "public"
+    "kubernetes.io/role/elb" = var.k8s_public_elb_role
   }
 
   lifecycle {
@@ -35,12 +36,13 @@ resource "aws_subnet" "private_subnets" {
   map_public_ip_on_launch = false
 
   tags = {
-    Name          = "${var.environment}.sn.private.${element(split(",", var.availability_zones), count.index)}"
-    Environment   = var.environment
-    Description   = "private.${element(split(",", var.availability_zones), count.index)}"
-    Contact       = var.vpc_contact
-    Orchestration = var.global_orchestration
-    Visibility    = "private"
+    Name                              = "${var.environment}.sn.private.${element(split(",", var.availability_zones), count.index)}"
+    Environment                       = var.environment
+    Description                       = "private.${element(split(",", var.availability_zones), count.index)}"
+    Contact                           = var.vpc_contact
+    Orchestration                     = var.global_orchestration
+    Visibility                        = "private"
+    "kubernetes.io/role/internal-elb" = var.k8s_private_elb_role
   }
 
   lifecycle {
