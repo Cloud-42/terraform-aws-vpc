@@ -54,12 +54,12 @@ variable "vpc_flow_logs_s3_name" {
 }
 
 variable "k8s_public_elb_role" {
-  description = "Provides ability to tag subnets for EKS Public use"
+  description = "Provides the ability to tag subnets for EKS ALB Public use"
   default     = "1"
 }
 
 variable "k8s_private_elb_role" {
-  description = "Provides ability to tag subnets for EKS Public use"
+  description = "Provides the ability to tag subnets for EKS ALB Private use"
   default     = "1"
 }
 

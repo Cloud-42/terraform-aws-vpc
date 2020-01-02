@@ -28,6 +28,8 @@ Upon launching the stack the following resources will be created:
 | `environment` |Environment to deploy for|
 | `vpc_propagating_vgws` |Comma separated list of Virtual Gateways that propagate routes to the private routing tables in addition to the one created. Optional. |
 | `vpc_enable_flow_logs` |Set to "1" to enable flow logs for the VPC, logging to s3. Defaults to "1"|
+| `k8s_public_elb_role` |EKS looks for subnet tags in order to decide where to place ALBs. Allows for public subnet tag to be set.|
+| `k8s_private_elb_role` |EKS looks for subnet tags in order to decide where to place ALBs. Allows for private subnet tag to be set.|
 
 ## Outputs
  * core\_ssh\_cidr\_blocks
