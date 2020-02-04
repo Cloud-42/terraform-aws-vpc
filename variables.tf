@@ -3,30 +3,40 @@ variable "all_cidr_blocks" {
 }
 
 variable "core_ssh_cidr_blocks" {
+  description = "SSH CIDR. Used by SSH Secuirty Group to grant access"
 }
 
 variable "vpc_subnet" {
+  description = "CIDR range for VPC"
 }
 
 variable "dns_domain" {
+  description = "Public Route 53 Zone name. Optional - If no value is set zone will not be created"
+  default     = 0
 }
 
 variable "availability_zones" {
+  description = "Availability zones"
 }
 
 variable "public_subnets" {
+  description = "Public subnet CIDRs"
 }
 
 variable "private_subnets" {
+  description = "Private subnet CIDRs"
 }
 
 variable "environment" {
+  description = "Environment"
 }
 
 variable "vpc_contact" {
+  description = "Contact tag"
 }
 
 variable "global_orchestration" {
+  description = "Orchestration tag"
 }
 
 variable "domain_name_servers" {

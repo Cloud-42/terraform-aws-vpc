@@ -1,5 +1,6 @@
 resource "aws_route53_zone" "vpc_public_zone" {
-  name = var.dns_domain
+  count = var.dns_domain != 0 ? 1 : 0
+  name  = var.dns_domain
 
   tags = {
     Name          = "${var.environment}.PublicZone"
