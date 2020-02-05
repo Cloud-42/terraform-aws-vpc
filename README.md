@@ -29,6 +29,7 @@ Upon launching the stack the following resources will be created:
 | :------- | :----- |
 | `all_cidr_blocks`| Default: 0.0.0.0/0 |
 | `domain_name_servers` | Comma separated list of domain name servers to use in DHCP options|
+| `dns_domain` | DNS domain name. Optional - if set Route 53 zone will be created and domain added to DHCP option set |
 | `key_name` | ssh key name to use |
 | `vpc_subnet` | VPC CIDR block to use for the VPC |
 | `vpc_name` | Name of the VPC |
@@ -49,7 +50,7 @@ Upon launching the stack the following resources will be created:
  * private\_subnets
  * vgw\_id
  * vpc\_id
- * dns\_zone\_id
+ * zone\_id
  * private\_route\_table
  * public\_route\_table
 
@@ -58,7 +59,9 @@ Upon launching the stack the following resources will be created:
 To import the module add the following to the environment TF file:
 ```
 module "vpc" {
-  source = "git::https://github.com/Cloud-42/terraform-aws-vpc.git"
+  source  = "Cloud-42/vpc/aws"
+  version = "3.0.0"
+
   
   availability_zones        = var.availability_zones
   environment               = var.environment
