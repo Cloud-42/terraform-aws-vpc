@@ -12,7 +12,7 @@ resource "aws_route53_zone" "vpc_public_zone" {
 }
 
 resource "aws_vpc_dhcp_options" "options" {
-  domain_name         = var.dns_domain
+  domain_name         = var.dns_domain != 0 ? var.dns_domain : null
   domain_name_servers = split(",", var.domain_name_servers)
 
   tags = {
