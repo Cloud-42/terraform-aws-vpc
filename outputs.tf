@@ -3,7 +3,10 @@ output "nat_eips" {
 }
 
 output "dns_zone_id" {
-  value = aws_route53_zone.vpc_public_zone.zone_id
+  depends_on = [
+    aws_route53_zone.vpc_public_zone
+  ]
+  value = var.dns_domain != 0 ? join(",", aws_route53_zone.vpc_public_zone.*.zone_id) : 0
 }
 
 output "private_route_table" {
@@ -35,7 +38,10 @@ output "vpc_cidr" {
 }
 
 output "zone_id" {
-  value = aws_route53_zone.vpc_public_zone.zone_id
+  depends_on = [
+    aws_route53_zone.vpc_public_zone
+  ]
+  value = var.dns_domain != 0 ? join(",", aws_route53_zone.vpc_public_zone.*.zone_id) : 0
 }
 
 #
